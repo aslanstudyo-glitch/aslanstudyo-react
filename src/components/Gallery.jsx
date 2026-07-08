@@ -2,8 +2,19 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
+const localImages = [
+  "/images/gallery/1.JPG",
+  "/images/gallery/2.jpg",
+  "/images/gallery/3.JPG",
+  "/images/gallery/4.JPG",
+  "/images/gallery/5.JPG",
+  "/images/gallery/6.JPG",
+  "/images/gallery/7.JPG",
+  "/images/gallery/8.JPG",
+];
+
 function Gallery({ setSelectedImage }) {
-  const [galleryImages, setGalleryImages] = useState([]);
+  const [firebaseImages, setFirebaseImages] = useState([]);
 
   useEffect(() => {
     const loadGallery = async () => {
@@ -14,11 +25,20 @@ function Gallery({ setSelectedImage }) {
         ...doc.data(),
       }));
 
-      setGalleryImages(images);
+      setFirebaseImages(images);
     };
 
     loadGallery();
   }, []);
+
+  const allImages = [
+    ...localImages.map((url, index) => ({
+      id: `local-${index}`,
+      imageUrl: url,
+      title: `Galeri ${index + 1}`,
+    })),
+    ...firebaseImages,
+  ];
 
   return (
     <section className="gallery-section" id="gallery">
@@ -29,7 +49,7 @@ function Gallery({ setSelectedImage }) {
       </div>
 
       <div className="gallery-grid">
-        {galleryImages.map((item, index) => {
+        {allImages.map((item, index) => {
           const imageUrl = item.imageUrl || item["resim URL'si"];
           const title = item.title || item["başlık"] || `Galeri ${index + 1}`;
 
@@ -40,7 +60,6 @@ function Gallery({ setSelectedImage }) {
               onClick={() => setSelectedImage(imageUrl)}
             >
               <img src={imageUrl} alt={title} />
-
               <div className="gallery-overlay">
                 <span>Fotoğrafı Gör</span>
               </div>
