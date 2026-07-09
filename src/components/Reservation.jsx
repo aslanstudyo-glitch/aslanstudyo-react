@@ -1,17 +1,31 @@
+import { db } from "../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+
 function Reservation() {
-  const sendReservation = (e) => {
+  const sendReservation = async (e) => {
     e.preventDefault();
 
     const form = e.target;
-    const name = form.name.value;
-    const phone = form.phone.value;
-    const service = form.service.value;
-    const date = form.date.value;
-    const message = form.message.value;
 
-    const text = `Merhaba Aslan Stüdyo, rezervasyon talebi oluşturmak istiyorum.%0A%0AAd Soyad: ${name}%0ATelefon: ${phone}%0AÇekim Türü: ${service}%0ATarih: ${date}%0AMesaj: ${message}`;
+    const reservationData = {
+      name: form.name.value,
+      phone: form.phone.value,
+      service: form.service.value,
+      date: form.date.value,
+      message: form.message.value,
+      status: "Bekliyor",
+      createdAt: serverTimestamp(),
+    };
 
-    window.open(`https://wa.me/905333229560?text=${text}`, "_blank");
+    try {
+      await addDoc(collection(db, "reservations"), reservationData);
+
+      alert("Rezervasyon talebiniz başarıyla alındı. En kısa sürede dönüş yapılacaktır.");
+      form.reset();
+    } catch (error) {
+      console.error(error);
+      alert("Rezervasyon gönderilemedi. Lütfen tekrar deneyin.");
+    }
   };
 
   return (
@@ -19,7 +33,7 @@ function Reservation() {
       <div className="section-title">
         <span>Rezervasyon</span>
         <h2>Randevu Talebi Oluştur</h2>
-        <p>Bilgilerinizi doldurun, talebiniz WhatsApp üzerinden bize ulaşsın.</p>
+        <p>Bilgilerinizi doldurun, talebiniz bize ulaşsın.</p>
       </div>
 
       <form className="reservation-form" onSubmit={sendReservation}>
@@ -42,7 +56,7 @@ function Reservation() {
         <textarea name="message" placeholder="Mesajınız" rows="5"></textarea>
 
         <button type="submit" className="btn red">
-          WhatsApp ile Gönder
+          Rezervasyon Gönder
         </button>
       </form>
     </section>
