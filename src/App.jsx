@@ -1,10 +1,12 @@
 import { useState } from "react";
 import "./App.css";
+
 import RadioPlayer from "./components/RadioPlayer";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
 import Gallery from "./components/Gallery";
 import Videos from "./components/Videos";
+import Announcements from "./components/Announcements";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -21,6 +23,7 @@ function App() {
       <Services />
       <Gallery setSelectedImage={setSelectedImage} />
       <Videos />
+      <Announcements />
       <About />
       <Reservation />
       <Testimonials />
@@ -39,7 +42,10 @@ function App() {
       </a>
 
       {selectedImage && (
-        <div className="lightbox" onClick={() => setSelectedImage(null)}>
+        <div
+          className="lightbox"
+          onClick={() => setSelectedImage(null)}
+        >
           <button
             type="button"
             className="lightbox-close"
