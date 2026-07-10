@@ -14,6 +14,7 @@ import Testimonials from "./components/Testimonials";
 import Instagram from "./components/Instagram";
 import Reservation from "./components/Reservation";
 import TopInfoBar from "./components/TopInfoBar";
+import NewsTicker from "./components/NewsTicker";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -21,6 +22,7 @@ function App() {
   return (
     <>
       <TopInfoBar />
+      <NewsTicker />
       <Hero />
       <Services />
       <Gallery setSelectedImage={setSelectedImage} />

@@ -1,0 +1,134 @@
+.news-ticker {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  min-height: 44px;
+  overflow: hidden;
+  background: #ffffff;
+  border-bottom: 1px solid #ececec;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+.news-ticker-label {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 28px;
+  background: #e30613;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+.news-ticker-label::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -18px;
+  width: 36px;
+  height: 100%;
+  background: #e30613;
+  transform: skewX(-20deg);
+  transform-origin: top;
+  z-index: -1;
+}
+
+.news-ticker-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.18);
+  animation: tickerPulse 1.4s infinite;
+}
+
+.news-ticker-window {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.news-ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  white-space: nowrap;
+  animation: tickerMove 32s linear infinite;
+}
+
+.news-ticker:hover .news-ticker-track {
+  animation-play-state: paused;
+}
+
+.news-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  color: #202020;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.news-ticker-separator {
+  margin: 0 24px;
+  color: #e30613;
+  font-size: 17px;
+}
+
+@keyframes tickerMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes tickerPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.55;
+    transform: scale(0.78);
+  }
+}
+
+@media (max-width: 768px) {
+  .news-ticker {
+    min-height: 40px;
+  }
+
+  .news-ticker-label {
+    padding: 0 16px;
+    font-size: 11px;
+  }
+
+  .news-ticker-item {
+    font-size: 12px;
+  }
+
+  .news-ticker-separator {
+    margin: 0 16px;
+  }
+
+  .news-ticker-track {
+    animation-duration: 24s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-ticker-track,
+  .news-ticker-dot {
+    animation: none;
+  }
+}
