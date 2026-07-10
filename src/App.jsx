@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-
+import RadioPlayer from "./components/RadioPlayer";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
 import Gallery from "./components/Gallery";
@@ -26,6 +26,7 @@ function App() {
       <Testimonials />
       <Instagram />
       <Contact />
+      <RadioPlayer />
       <Footer />
 
       <a
