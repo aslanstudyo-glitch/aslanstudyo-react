@@ -15,6 +15,7 @@ import Instagram from "./components/Instagram";
 import Reservation from "./components/Reservation";
 import TopInfoBar from "./components/TopInfoBar";
 import NewsTicker from "./components/NewsTicker";
+import AslanaSor from "./components/AslanaSor";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -33,6 +34,7 @@ function App() {
       <Testimonials />
       <Instagram />
       <Contact />
+      <AslanaSor />
       <RadioPlayer />
       <Footer />
 
