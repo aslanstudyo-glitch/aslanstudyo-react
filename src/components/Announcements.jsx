@@ -40,14 +40,11 @@ function Announcements() {
   const formatDate = (timestamp) => {
     if (!timestamp?.seconds) return "";
 
-    return new Date(timestamp.seconds * 1000).toLocaleDateString(
-      "tr-TR",
-      {
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
-      }
-    );
+    return new Date(timestamp.seconds * 1000).toLocaleDateString("tr-TR", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    });
   };
 
   if (!loading && announcements.length === 0) {
@@ -59,9 +56,7 @@ function Announcements() {
       <div className="section-title">
         <span>Güncel</span>
         <h2>Duyurular ve Kampanyalar</h2>
-        <p>
-          Aslan Stüdyo’dan güncel kampanya, hizmet ve yenilikler.
-        </p>
+        <p>Aslan Stüdyo’dan güncel kampanya, hizmet ve yenilikler.</p>
       </div>
 
       {loading && (
@@ -71,29 +66,42 @@ function Announcements() {
       <div className="announcements-grid">
         {announcements.map((announcement) => (
           <article
+            key={announcement.id}
             className={`announcement-card ${
               announcement.featured ? "featured" : ""
             }`}
-            key={announcement.id}
           >
-            <img
-              src={announcement.imageUrl}
-              alt={announcement.title}
-            />
+            <div className="announcement-image">
+              <img
+                src={announcement.imageUrl}
+                alt={announcement.title}
+              />
+
+              <div className="announcement-overlay">
+                {announcement.featured && (
+                  <span className="announcement-badge">
+                    ⭐ Öne Çıkan
+                  </span>
+                )}
+              </div>
+            </div>
 
             <div className="announcement-content">
-              {announcement.featured && (
-                <span className="announcement-badge">
-                  ⭐ Öne Çıkan
-                </span>
-              )}
-
               <h3>{announcement.title}</h3>
 
               <p>{announcement.description}</p>
 
-              <div className="announcement-date">
-                📅 {formatDate(announcement.createdAt)}
+              <div className="announcement-footer">
+                <span>
+                  📅 {formatDate(announcement.createdAt)}
+                </span>
+
+                <button
+                  type="button"
+                  className="announcement-btn"
+                >
+                  Devamını Oku →
+                </button>
               </div>
             </div>
           </article>
