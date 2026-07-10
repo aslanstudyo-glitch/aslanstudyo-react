@@ -1,8 +1,22 @@
+import "./Instagram.css";
+
 const instagramPosts = [
-  "/images/gallery/1.JPG",
-  "/images/gallery/2.jpg",
-  "/images/gallery/3.JPG",
-  "/images/gallery/4.JPG",
+  {
+    image: "/images/gallery/1.JPG",
+    title: "Düğün Hikâyesi",
+  },
+  {
+    image: "/images/gallery/2.jpg",
+    title: "Dış Çekim",
+  },
+  {
+    image: "/images/gallery/3.JPG",
+    title: "Nişan Çekimi",
+  },
+  {
+    image: "/images/gallery/4.JPG",
+    title: "Özel Anlar",
+  },
 ];
 
 function Instagram() {
@@ -10,10 +24,10 @@ function Instagram() {
     <section className="instagram-section" id="instagram">
       <div className="section-title">
         <span>Sosyal Medya</span>
-        <h2>📷 Bizi Instagram'da Takip Edin</h2>
+        <h2>Instagram’da Aslan Stüdyo</h2>
         <p>
-          📸 Düğün, nişan, kına gecesi, drone ve dış çekim çalışmalarımızın
-          en yeni karelerini görmek için bizi Instagram'da takip edin.
+          Düğün, nişan, kına, drone ve dış çekim çalışmalarımızdan en yeni
+          kareleri keşfedin.
         </p>
       </div>
 
@@ -24,11 +38,23 @@ function Instagram() {
             target="_blank"
             rel="noreferrer"
             className="instagram-card"
-            key={index}
+            key={post.image}
+            aria-label={`${post.title} gönderisini Instagram'da görüntüle`}
           >
-            <img src={post} alt={`Instagram ${index + 1}`} />
+            <img
+              src={post.image}
+              alt={post.title}
+              loading="lazy"
+            />
+
             <div className="instagram-overlay">
-              <span>@aslanstudyo</span>
+              <span className="instagram-icon">📷</span>
+              <strong>{post.title}</strong>
+              <small>Gönderiyi Gör</small>
+            </div>
+
+            <div className="instagram-handle">
+              @aslanstudyo
             </div>
           </a>
         ))}
@@ -39,9 +65,10 @@ function Instagram() {
           href="https://www.instagram.com/aslanstudyo"
           target="_blank"
           rel="noreferrer"
-          className="btn instagram-btn"
+          className="instagram-follow-button"
         >
-          📷 @aslanstudyo'yu Takip Et
+          <span>📷</span>
+          @aslanstudyo’yu Takip Et
         </a>
       </div>
     </section>
