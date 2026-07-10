@@ -4,12 +4,14 @@ import "./App.css";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
 import Gallery from "./components/Gallery";
+import Videos from "./components/Videos";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Testimonials from "./components/Testimonials";
 import Instagram from "./components/Instagram";
 import Reservation from "./components/Reservation";
+
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -18,6 +20,7 @@ function App() {
       <Hero />
       <Services />
       <Gallery setSelectedImage={setSelectedImage} />
+      <Videos />
       <About />
       <Reservation />
       <Testimonials />
@@ -36,7 +39,14 @@ function App() {
 
       {selectedImage && (
         <div className="lightbox" onClick={() => setSelectedImage(null)}>
-          <button className="lightbox-close">×</button>
+          <button
+            type="button"
+            className="lightbox-close"
+            onClick={() => setSelectedImage(null)}
+          >
+            ×
+          </button>
+
           <img src={selectedImage} alt="Büyük Galeri" />
         </div>
       )}
