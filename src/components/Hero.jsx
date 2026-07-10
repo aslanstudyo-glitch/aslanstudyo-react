@@ -12,6 +12,7 @@ function Hero() {
     heroButton1: "Galeriyi Keşfet",
     heroButton2: "WhatsApp",
     whatsapp: "05333229560",
+    heroVideo: "/videos/dukkan.mp4",
   });
 
   useEffect(() => {
@@ -37,10 +38,22 @@ function Hero() {
     .replace(/\s/g, "")
     .replace(/^0/, "90");
 
+  const heroVideoUrl =
+    settings.heroVideo && settings.heroVideo.trim() !== ""
+      ? settings.heroVideo
+      : "/videos/dukkan.mp4";
+
   return (
     <section className="hero" id="home">
-      <video className="hero-video" autoPlay muted loop playsInline>
-        <source src="/videos/dukkan.mp4" type="video/mp4" />
+      <video
+        key={heroVideoUrl}
+        className="hero-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src={heroVideoUrl} type="video/mp4" />
       </video>
 
       <div className="overlay"></div>
