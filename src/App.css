@@ -876,7 +876,8 @@ nav a{
   color: #5b5b5b;
   line-height: 1.7;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+ line-clamp: 2;
+-webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   min-height: 58px;
