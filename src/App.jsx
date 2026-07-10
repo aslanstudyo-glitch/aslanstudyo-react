@@ -13,12 +13,14 @@ import Footer from "./components/Footer";
 import Testimonials from "./components/Testimonials";
 import Instagram from "./components/Instagram";
 import Reservation from "./components/Reservation";
+import TopInfoBar from "./components/TopInfoBar";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
     <>
+      <TopInfoBar />
       <Hero />
       <Services />
       <Gallery setSelectedImage={setSelectedImage} />

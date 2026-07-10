@@ -1,0 +1,74 @@
+.top-info-bar {
+  position: relative;
+  z-index: 1001;
+  width: 100%;
+  min-height: 42px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #090909, #1b1b1b, #090909);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.top-info-track {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 7px 5%;
+  white-space: nowrap;
+}
+
+.top-info-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+}
+
+.top-info-item strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.top-info-item span:last-child {
+  color: #d5d5d5;
+}
+
+.top-info-icon {
+  font-size: 15px;
+}
+
+.top-info-separator {
+  width: 1px;
+  height: 18px;
+  flex: 0 0 auto;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.top-info-gold strong {
+  color: #f3c742;
+}
+
+@media (max-width: 900px) {
+  .top-info-bar {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .top-info-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .top-info-track {
+    width: max-content;
+    min-width: 100%;
+    justify-content: flex-start;
+    gap: 17px;
+    padding: 8px 18px;
+  }
+
+  .top-info-item {
+    font-size: 12px;
+  }
+}
