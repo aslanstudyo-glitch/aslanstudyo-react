@@ -16,6 +16,7 @@ import Reservation from "./components/Reservation";
 import TopInfoBar from "./components/TopInfoBar";
 import NewsTicker from "./components/NewsTicker";
 import AslanaSor from "./components/AslanaSor";
+import YouTube from "./components/YouTube";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -28,6 +29,7 @@ function App() {
       <Services />
       <Gallery setSelectedImage={setSelectedImage} />
       <Videos />
+      <YouTube />
       <Announcements />
       <About />
       <Reservation />
