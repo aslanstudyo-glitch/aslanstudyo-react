@@ -17,6 +17,7 @@ import TopInfoBar from "./components/TopInfoBar";
 import NewsTicker from "./components/NewsTicker";
 import AslanaSor from "./components/AslanaSor";
 import YouTube from "./components/YouTube";
+import CountryNews from "./components/CountryNews";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -35,6 +36,7 @@ function App() {
       <Reservation />
       <Testimonials />
       <Instagram />
+      <CountryNews />
       <Contact />
       <AslanaSor />
       <RadioPlayer />
