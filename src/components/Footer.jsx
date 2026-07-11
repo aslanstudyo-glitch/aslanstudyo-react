@@ -8,8 +8,10 @@ function Footer() {
       <p>Hatıralar Aslan'la Sonsuz</p>
 
       <div className="footer-links">
-        <Link to="/kunye">Künye</Link>
-      </div>
+  <Link to="/kunye">Künye</Link>
+  <span>|</span>
+  <Link to="/kvkk">KVKK</Link>
+</div>
 
       <span>© 2026 Aslan Stüdyo | Video & Fotoğrafçılık</span>
     </footer>

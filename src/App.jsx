@@ -20,6 +20,7 @@ import YouTube from "./components/YouTube";
 import LiveContent from "./components/LiveContent";
 import RegistrationBadge from "./components/RegistrationBadge";
 import Kunye from "./pages/Kunye";
+import Kvkk from "./pages/Kvkk";
 
 function HomePage() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -78,6 +79,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/kunye" element={<Kunye />} />
+      <Route path="/kvkk" element={<Kvkk />} />
     </Routes>
   );
 }
