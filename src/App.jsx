@@ -17,6 +17,7 @@ import NewsTicker from "./components/NewsTicker";
 import AslanaSor from "./components/AslanaSor";
 import YouTube from "./components/YouTube";
 import LiveContent from "./components/LiveContent";
+import RegistrationBadge from "./components/RegistrationBadge";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -39,6 +40,7 @@ function App() {
       <AslanaSor />
       <RadioPlayer />
       <Footer />
+      <RegistrationBadge />
 
       <a
         href="https://wa.me/905333229560"
