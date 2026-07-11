@@ -11,13 +11,12 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Testimonials from "./components/Testimonials";
-import Instagram from "./components/Instagram";
 import Reservation from "./components/Reservation";
 import TopInfoBar from "./components/TopInfoBar";
 import NewsTicker from "./components/NewsTicker";
 import AslanaSor from "./components/AslanaSor";
 import YouTube from "./components/YouTube";
-import CountryNews from "./components/CountryNews";
+import LiveContent from "./components/LiveContent";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -35,8 +34,7 @@ function App() {
       <About />
       <Reservation />
       <Testimonials />
-      <Instagram />
-      <CountryNews />
+       <LiveContent />
       <Contact />
       <AslanaSor />
       <RadioPlayer />

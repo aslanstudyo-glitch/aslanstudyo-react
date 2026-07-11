@@ -1,3 +1,4 @@
+import { FaNewspaper } from "react-icons/fa";
 import "./CountryNews.css";
 
 function CountryNews() {
@@ -7,7 +8,12 @@ function CountryNews() {
         <div className="country-news-header">
           <div>
             <span>Gündem</span>
-            <h2>Ülkemizden Haberler</h2>
+
+            <h2>
+              <FaNewspaper className="news-icon" />
+              Ülkemizden Haberler
+            </h2>
+
           </div>
 
           <span className="country-news-live">

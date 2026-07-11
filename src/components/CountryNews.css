@@ -4,7 +4,7 @@
 }
 
 .country-news-card {
-  max-width: 760px;
+  max-width: 1050px;
   margin: 0 auto;
   overflow: hidden;
   border: 1px solid #e8e8e8;
@@ -63,7 +63,7 @@
 .country-news-frame iframe {
   display: block;
   width: 100%;
-  min-height: 360px;
+  min-height: 620px;
   border: 0;
   background: #ffffff;
 }
@@ -109,4 +109,15 @@
   .country-news-frame iframe {
     min-height: 390px;
   }
+}.news-icon{
+    color:#d91414;
+    margin-right:12px;
+    font-size:34px;
+    vertical-align:middle;
+}
+
+.country-news-header h2{
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
