@@ -2,43 +2,38 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
-const localImages = [
-  "/images/gallery/1.JPG",
-  "/images/gallery/2.jpg",
-  "/images/gallery/3.JPG",
-  "/images/gallery/4.JPG",
-  "/images/gallery/5.JPG",
-  "/images/gallery/6.JPG",
-  "/images/gallery/7.JPG",
-  "/images/gallery/8.JPG",
-];
-
 function Gallery({ setSelectedImage }) {
-  const [firebaseImages, setFirebaseImages] = useState([]);
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const loadGallery = async () => {
-      const snapshot = await getDocs(collection(db, "gallery"));
+      try {
+        const snapshot = await getDocs(collection(db, "gallery"));
 
-      const images = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
+        const galleryImages = snapshot.docs.map((galleryDoc) => ({
+          id: galleryDoc.id,
+          ...galleryDoc.data(),
+        }));
 
-      setFirebaseImages(images);
+        galleryImages.sort((a, b) => {
+          const aTime = a.createdAt?.seconds || 0;
+          const bTime = b.createdAt?.seconds || 0;
+          return bTime - aTime;
+        });
+
+        setImages(galleryImages);
+      } catch (requestError) {
+        console.error("Galeri yüklenemedi:", requestError);
+        setError("Galeri şu anda yüklenemiyor.");
+      } finally {
+        setLoading(false);
+      }
     };
 
     loadGallery();
   }, []);
-
-  const allImages = [
-    ...localImages.map((url, index) => ({
-      id: `local-${index}`,
-      imageUrl: url,
-      title: `Galeri ${index + 1}`,
-    })),
-    ...firebaseImages,
-  ];
 
   return (
     <section className="gallery-section" id="gallery">
@@ -48,25 +43,66 @@ function Gallery({ setSelectedImage }) {
         <p>En özel anlardan seçilmiş kareler.</p>
       </div>
 
-      <div className="gallery-grid">
-        {allImages.map((item, index) => {
-          const imageUrl = item.imageUrl || item["resim URL'si"];
-          const title = item.title || item["başlık"] || `Galeri ${index + 1}`;
+      {loading && (
+        <p style={{ textAlign: "center" }}>
+          Galeri yükleniyor...
+        </p>
+      )}
 
-          return (
-            <div
-              className="gallery-card"
-              key={item.id}
-              onClick={() => setSelectedImage(imageUrl)}
-            >
-              <img src={imageUrl} alt={title} />
-              <div className="gallery-overlay">
-                <span>Fotoğrafı Gör</span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      {!loading && error && (
+        <p
+          style={{
+            textAlign: "center",
+            color: "#e30613",
+          }}
+        >
+          {error}
+        </p>
+      )}
+
+      {!loading && !error && images.length === 0 && (
+        <p style={{ textAlign: "center" }}>
+          Henüz galeri fotoğrafı yüklenmedi.
+        </p>
+      )}
+
+      {!loading && !error && images.length > 0 && (
+        <div className="gallery-grid">
+          {images.map((item, index) => {
+            const imageUrl =
+              item.imageUrl || item["resim URL'si"];
+
+            const title =
+              item.title ||
+              item["başlık"] ||
+              `Galeri ${index + 1}`;
+
+            if (!imageUrl) {
+              return null;
+            }
+
+            return (
+              <button
+                type="button"
+                className="gallery-card"
+                key={item.id}
+                onClick={() => setSelectedImage(imageUrl)}
+                aria-label={`${title} fotoğrafını büyüt`}
+              >
+                <img
+                  src={imageUrl}
+                  alt={title}
+                  loading="lazy"
+                />
+
+                <div className="gallery-overlay">
+                  <span>Fotoğrafı Gör</span>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      )}
     </section>
   );
 }
