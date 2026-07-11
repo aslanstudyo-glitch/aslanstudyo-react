@@ -1,68 +1,132 @@
+import { useEffect, useState } from "react";
 import "./Instagram.css";
 
-const instagramPosts = [
-  {
-    image: "/images/gallery/1.JPG",
-    title: "Düğün Hikâyesi",
-  },
-  {
-    image: "/images/gallery/2.jpg",
-    title: "Dış Çekim",
-  },
-  {
-    image: "/images/gallery/3.JPG",
-    title: "Nişan Çekimi",
-  },
-  {
-    image: "/images/gallery/4.JPG",
-    title: "Özel Anlar",
-  },
-];
+const INSTAGRAM_PROFILE_URL =
+  "https://www.instagram.com/aslanstudyo";
 
 function Instagram() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const loadInstagramPosts = async () => {
+      try {
+        const response = await fetch("/api/instagram");
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(
+            data.error || "Instagram paylaşımları alınamadı."
+          );
+        }
+
+        setPosts(data.posts || []);
+      } catch (requestError) {
+        console.error("Instagram yükleme hatası:", requestError);
+        setError("Instagram paylaşımları şu anda yüklenemedi.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadInstagramPosts();
+  }, []);
+
+  const getPostImage = (post) => {
+    if (post.media_type === "VIDEO") {
+      return post.thumbnail_url || post.media_url;
+    }
+
+    return post.media_url;
+  };
+
+  const getPostTitle = (post) => {
+    if (!post.caption) {
+      return "Aslan Stüdyo Instagram paylaşımı";
+    }
+
+    return post.caption.length > 80
+      ? `${post.caption.slice(0, 80)}...`
+      : post.caption;
+  };
+
   return (
     <section className="instagram-section" id="instagram">
       <div className="section-title">
         <span>Sosyal Medya</span>
+
         <h2>Instagram’da Aslan Stüdyo</h2>
+
         <p>
-          Düğün, nişan, kına, drone ve dış çekim çalışmalarımızdan en yeni
-          kareleri keşfedin.
+          En yeni düğün, nişan, drone ve dış çekim
+          çalışmalarımızı keşfedin.
         </p>
       </div>
 
-      <div className="instagram-grid">
-        {instagramPosts.map((post, index) => (
-          <a
-            href="https://www.instagram.com/aslanstudyo"
-            target="_blank"
-            rel="noreferrer"
-            className="instagram-card"
-            key={post.image}
-            aria-label={`${post.title} gönderisini Instagram'da görüntüle`}
-          >
-            <img
-              src={post.image}
-              alt={post.title}
-              loading="lazy"
-            />
+      {loading && (
+        <div className="instagram-status">
+          Instagram paylaşımları yükleniyor...
+        </div>
+      )}
 
-            <div className="instagram-overlay">
-              <span className="instagram-icon">📷</span>
-              <strong>{post.title}</strong>
-              <small>Gönderiyi Gör</small>
-            </div>
+      {!loading && error && (
+        <div className="instagram-status instagram-error">
+          {error}
+        </div>
+      )}
 
-            <div className="instagram-handle">
-              @aslanstudyo
-            </div>
-          </a>
-        ))}
-      </div>
+      {!loading && !error && posts.length > 0 && (
+        <div className="instagram-grid">
+          {posts.slice(0, 8).map((post) => (
+            <a
+              key={post.id}
+              href={post.permalink}
+              target="_blank"
+              rel="noreferrer"
+              className="instagram-card"
+              aria-label="Instagram gönderisini aç"
+            >
+              <img
+                src={getPostImage(post)}
+                alt={getPostTitle(post)}
+                loading="lazy"
+              />
+
+              <div className="instagram-overlay">
+                <span className="instagram-icon">
+                  {post.media_type === "VIDEO" ? "▶" : "📷"}
+                </span>
+
+                <strong>
+                  {post.media_type === "VIDEO"
+                    ? "Reels Videosunu İzle"
+                    : "Gönderiyi Gör"}
+                </strong>
+
+                {post.caption && (
+                  <small>{getPostTitle(post)}</small>
+                )}
+              </div>
+
+              <div className="instagram-handle">
+                @aslanstudyo
+              </div>
+
+              {post.media_type === "VIDEO" && (
+                <div className="instagram-video-badge">
+                  REELS
+                </div>
+              )}
+            </a>
+          ))}
+        </div>
+      )}
 
       <div className="instagram-button">
         <a
-          href="https://www.instagram.com/aslanstudyo"
+          href={INSTAGRAM_PROFILE_URL}
           target="_blank"
           rel="noreferrer"
           className="instagram-follow-button"

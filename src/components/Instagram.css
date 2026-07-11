@@ -160,4 +160,47 @@
   .instagram-icon {
     font-size: 25px;
   }
+}.instagram-status {
+  max-width: 700px;
+  margin: 0 auto 35px;
+  padding: 18px 22px;
+  border-radius: 14px;
+  background: #f3f3f3;
+  color: #555555;
+  text-align: center;
+}
+
+.instagram-error {
+  border: 1px solid rgba(227, 6, 19, 0.2);
+  background: rgba(227, 6, 19, 0.06);
+  color: #b3000b;
+}
+
+.instagram-overlay small {
+  display: -webkit-box;
+  max-width: 250px;
+  margin-top: 10px;
+  overflow: hidden;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: center;
+
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.instagram-video-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #e30613;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
 }
