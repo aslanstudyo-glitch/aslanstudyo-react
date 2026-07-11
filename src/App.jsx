@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import RadioPlayer from "./components/RadioPlayer";
@@ -18,8 +19,9 @@ import AslanaSor from "./components/AslanaSor";
 import YouTube from "./components/YouTube";
 import LiveContent from "./components/LiveContent";
 import RegistrationBadge from "./components/RegistrationBadge";
+import Kunye from "./pages/Kunye";
 
-function App() {
+function HomePage() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
@@ -35,7 +37,7 @@ function App() {
       <About />
       <Reservation />
       <Testimonials />
-       <LiveContent />
+      <LiveContent />
       <Contact />
       <AslanaSor />
       <RadioPlayer />
@@ -68,6 +70,15 @@ function App() {
         </div>
       )}
     </>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/kunye" element={<Kunye />} />
+    </Routes>
   );
 }
 

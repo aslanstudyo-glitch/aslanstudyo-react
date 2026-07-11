@@ -929,4 +929,41 @@ nav a{
   .announcement-btn {
     width: 100%;
   }
+}.footer-links {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #e30613;
+}
+
+.footer-links span {
+  color: #777;
+}.footer-links {
+  display: flex;
+  justify-content: center;
+  margin: 14px 0;
+}
+
+.footer-links a {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #e30613;
 }
