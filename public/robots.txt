@@ -1,4 +1,5 @@
 User-agent: *
+
 Allow: /
 
-Sitemap: https://aslanstudyo-web.vercel.app/sitemap.xml
+Sitemap: https://aslanstudyo.com/sitemap.xml
