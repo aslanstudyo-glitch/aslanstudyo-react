@@ -1,49 +1,187 @@
 <!doctype html>
 <html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
-  <title>Aslan Stüdyo | Nevşehir Düğün Fotoğrafçısı</title>
+    <title>
+      Aslan Stüdyo | Nevşehir Düğün Fotoğrafçısı
+    </title>
 
-  <meta
-    name="description"
-    content="Aslan Stüdyo; Nevşehir Acıgöl'de düğün, nişan, kına, mezuniyet, drone çekimi, video ve fotoğrafçılık hizmetleri sunar. Hatıralar Aslan'la Sonsuz." />
+    <meta
+      name="description"
+      content="Aslan Stüdyo; Nevşehir Acıgöl'de düğün, nişan, kına, mezuniyet, dış çekim, drone, profesyonel video ve fotoğrafçılık hizmetleri sunar."
+    />
 
-  <meta
-    name="keywords"
-    content="Aslan Stüdyo, Nevşehir düğün fotoğrafçısı, Acıgöl fotoğrafçı, drone çekimi, düğün video, nişan çekimi, kına çekimi, fotoğraf baskısı" />
+    <meta
+      name="keywords"
+      content="Aslan Stüdyo, Nevşehir düğün fotoğrafçısı, Acıgöl fotoğrafçı, düğün çekimi, nişan çekimi, kına çekimi, drone çekimi, dış çekim, video çekimi, fotoğraf baskısı"
+    />
 
-  <meta name="author" content="Aslan Stüdyo" />
+    <meta name="author" content="Aslan Stüdyo" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#e30613" />
 
-  <meta property="og:title" content="Aslan Stüdyo | Hatıralar Aslan'la Sonsuz" />
-  <meta property="og:description"
-    content="Nevşehir Acıgöl'de profesyonel düğün, nişan, kına, mezuniyet, drone, video ve fotoğraf çekimi." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://aslanstudyo-web.vercel.app" />
-  <meta property="og:image" content="/images/logo.png" />
+    <!-- Gerçek ve tercih edilen site adresi -->
+    <link
+      rel="canonical"
+      href="https://aslanstudyo.com/"
+    />
 
-  <link rel="icon" type="image/png" href="/images/logo.png" />
+    <!-- Facebook, WhatsApp ve diğer sosyal ağlar -->
+    <meta
+      property="og:title"
+      content="Aslan Stüdyo | Hatıralar Aslan'la Sonsuz"
+    />
 
-  <meta name="google-site-verification"
-    content="IbZDSmaSn_bfPffMZJFSbMvOQwN4C0HT__dDYRN-TQ8" />
+    <meta
+      property="og:description"
+      content="Nevşehir Acıgöl'de profesyonel düğün, nişan, kına, mezuniyet, dış çekim, drone, video ve fotoğrafçılık hizmetleri."
+    />
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9PY0VBK8J6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="Aslan Stüdyo" />
 
-    gtag('config', 'G-9PY0VBK8J6');
-  </script>
+    <meta
+      property="og:url"
+      content="https://aslanstudyo.com/"
+    />
 
-</head>
+    <meta
+      property="og:image"
+      content="https://aslanstudyo.com/images/logo.png"
+    />
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
+    <meta
+      property="og:image:alt"
+      content="Aslan Stüdyo Video ve Fotoğrafçılık"
+    />
 
+    <!-- X / Twitter paylaşım kartı -->
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+
+    <meta
+      name="twitter:title"
+      content="Aslan Stüdyo | Nevşehir Düğün Fotoğrafçısı"
+    />
+
+    <meta
+      name="twitter:description"
+      content="Hatıralar Aslan'la Sonsuz. Düğün, nişan, kına, drone, dış çekim ve profesyonel video hizmetleri."
+    />
+
+    <meta
+      name="twitter:image"
+      content="https://aslanstudyo.com/images/logo.png"
+    />
+
+    <!-- Site simgesi -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/logo.png"
+    />
+
+    <!-- Google Search Console doğrulaması -->
+    <meta
+      name="google-site-verification"
+      content="IbZDSmaSn_bfPffMZJFSbMvOQwN4C0HT__dDYRN-TQ8"
+    />
+
+    <!-- Google yapılandırılmış işletme bilgileri -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://aslanstudyo.com/#business",
+            "name": "Aslan Stüdyo Video & Fotoğrafçılık",
+            "alternateName": "Aslan Stüdyo",
+            "url": "https://aslanstudyo.com/",
+            "logo": "https://aslanstudyo.com/images/logo.png",
+            "image": "https://aslanstudyo.com/images/logo.png",
+            "description": "Nevşehir Acıgöl'de düğün, nişan, kına, mezuniyet, dış çekim, drone, video ve profesyonel fotoğrafçılık hizmetleri.",
+            "telephone": "+905333229560",
+            "email": "aslanstudyo@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Çayırlık Mahallesi Aksaray Caddesi No:23/C",
+              "addressLocality": "Acıgöl",
+              "addressRegion": "Nevşehir",
+              "addressCountry": "TR"
+            },
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "Nevşehir"
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "opens": "09:00",
+                "closes": "19:00"
+              }
+            ],
+            "sameAs": [
+              "https://www.instagram.com/aslanstudyo",
+              "https://www.youtube.com/@AslanStudyo"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://aslanstudyo.com/#website",
+            "url": "https://aslanstudyo.com/",
+            "name": "Aslan Stüdyo",
+            "inLanguage": "tr-TR",
+            "publisher": {
+              "@id": "https://aslanstudyo.com/#business"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-9PY0VBK8J6"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+      gtag("config", "G-9PY0VBK8J6");
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script
+      type="module"
+      src="/src/main.jsx"
+    ></script>
+  </body>
 </html>
