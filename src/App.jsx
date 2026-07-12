@@ -23,6 +23,7 @@ import Kunye from "./pages/Kunye";
 import Kvkk from "./pages/Kvkk";
 import Gizlilik from "./pages/Gizlilik";
 import CerezPolitikasi from "./pages/CerezPolitikasi";
+import Iletisim from "./pages/Iletisim";
 
 function HomePage() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -87,6 +88,7 @@ function App() {
     path="/cerez-politikasi"
     element={<CerezPolitikasi />}
   />
+  <Route path="/iletisim" element={<Iletisim />} />
 </Routes>
   );
 }

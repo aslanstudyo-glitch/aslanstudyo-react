@@ -21,6 +21,10 @@ function Footer() {
   <Link to="/cerez-politikasi">
     Çerez Politikası
   </Link>
+
+  <span>|</span>
+
+  <Link to="/iletisim">İletişim</Link>
 </div>
 
       <span>© 2026 Aslan Stüdyo | Video & Fotoğrafçılık</span>
