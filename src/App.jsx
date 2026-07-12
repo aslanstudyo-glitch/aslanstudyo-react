@@ -22,6 +22,7 @@ import RegistrationBadge from "./components/RegistrationBadge";
 import Kunye from "./pages/Kunye";
 import Kvkk from "./pages/Kvkk";
 import Gizlilik from "./pages/Gizlilik";
+import CerezPolitikasi from "./pages/CerezPolitikasi";
 
 function HomePage() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -78,11 +79,15 @@ function HomePage() {
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/kunye" element={<Kunye />} />
-      <Route path="/kvkk" element={<Kvkk />} />
-      <Route path="/gizlilik" element={<Gizlilik />} />
-    </Routes>
+  <Route path="/" element={<HomePage />} />
+  <Route path="/kunye" element={<Kunye />} />
+  <Route path="/kvkk" element={<Kvkk />} />
+  <Route path="/gizlilik" element={<Gizlilik />} />
+  <Route
+    path="/cerez-politikasi"
+    element={<CerezPolitikasi />}
+  />
+</Routes>
   );
 }
 
