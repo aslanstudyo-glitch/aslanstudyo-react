@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
@@ -24,12 +24,25 @@ import Kvkk from "./pages/Kvkk";
 import Gizlilik from "./pages/Gizlilik";
 import CerezPolitikasi from "./pages/CerezPolitikasi";
 import Iletisim from "./pages/Iletisim";
+import LoadingScreen from "./components/LoadingScreen";
+
 
 function HomePage() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2900);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
+      {loading && <LoadingScreen />}
+
       <TopInfoBar />
       <NewsTicker />
       <Hero />

@@ -1,0 +1,139 @@
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(227, 6, 19, 0.16),
+      transparent 42%
+    ),
+    #050505;
+  color: #ffffff;
+  animation: loadingScreenExit 0.7s ease forwards;
+  animation-delay: 2.2s;
+}
+
+.loading-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(227, 6, 19, 0.18);
+  filter: blur(70px);
+  animation: loadingGlow 1.8s ease-in-out infinite;
+}
+
+.loading-logo {
+  position: relative;
+  z-index: 2;
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+  object-fit: contain;
+  animation: loadingLogo 1.6s ease-in-out infinite;
+}
+
+.loading-screen h1 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(32px, 5vw, 58px);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.loading-screen p {
+  position: relative;
+  z-index: 2;
+  margin: 12px 0 26px;
+  color: #e30613;
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 700;
+}
+
+.loading-line {
+  position: relative;
+  z-index: 2;
+  width: 220px;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.loading-line span {
+  display: block;
+  width: 45%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #e30613,
+    #ffffff,
+    #e30613,
+    transparent
+  );
+  animation: loadingLine 1.2s linear infinite;
+}
+
+@keyframes loadingLogo {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 12px rgba(227, 6, 19, 0.35));
+  }
+
+  50% {
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 30px rgba(227, 6, 19, 0.75));
+  }
+}
+
+@keyframes loadingGlow {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes loadingLine {
+  from {
+    transform: translateX(-130%);
+  }
+
+  to {
+    transform: translateX(320%);
+  }
+}
+
+@keyframes loadingScreenExit {
+  to {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .loading-logo {
+    width: 115px;
+  }
+
+  .loading-line {
+    width: 170px;
+  }
+}
