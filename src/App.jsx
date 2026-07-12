@@ -21,6 +21,7 @@ import LiveContent from "./components/LiveContent";
 import RegistrationBadge from "./components/RegistrationBadge";
 import Kunye from "./pages/Kunye";
 import Kvkk from "./pages/Kvkk";
+import Gizlilik from "./pages/Gizlilik";
 
 function HomePage() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -80,6 +81,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/kunye" element={<Kunye />} />
       <Route path="/kvkk" element={<Kvkk />} />
+      <Route path="/gizlilik" element={<Gizlilik />} />
     </Routes>
   );
 }
