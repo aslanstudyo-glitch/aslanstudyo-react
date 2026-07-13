@@ -25,6 +25,7 @@ import Gizlilik from "./pages/Gizlilik";
 import CerezPolitikasi from "./pages/CerezPolitikasi";
 import Iletisim from "./pages/Iletisim";
 import LoadingScreen from "./components/LoadingScreen";
+import VisitorTracker from "./components/VisitorTracker";
 
 
 function HomePage() {
@@ -43,6 +44,7 @@ function HomePage() {
     <>
       {loading && <LoadingScreen />}
 
+      <VisitorTracker />
       <TopInfoBar />
       <NewsTicker />
       <Hero />

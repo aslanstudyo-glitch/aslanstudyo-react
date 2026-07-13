@@ -1,9 +1,11 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD_8uX0Sz7whiosp73vA670R6qB8imQgXM",
   authDomain: "aslan-studyo.firebaseapp.com",
+  databaseURL: "https://aslan-studyo-default-rtdb.firebaseio.com",
   projectId: "aslan-studyo",
   storageBucket: "aslan-studyo.firebasestorage.app",
   messagingSenderId: "26719014768",
@@ -13,5 +15,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
+export const realtimeDb = getDatabase(app);
 
 export default app;
