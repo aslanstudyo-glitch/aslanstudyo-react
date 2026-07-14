@@ -1,3 +1,4 @@
+import SiteSearch from "./SiteSearch";
 function Navbar() {
   return (
     <header className="navbar">
@@ -12,6 +13,7 @@ function Navbar() {
         <a href="#about">Hakkımızda</a>
         <a href="#contact">İletişim</a>
       </nav>
+      <SiteSearch />
     </header>
   );
 }

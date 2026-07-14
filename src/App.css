@@ -966,4 +966,57 @@ nav a{
 
 .footer-links a:hover {
   color: #e30613;
+}.site-search{
+position:relative;
+margin-left:20px;
+}
+
+.site-search input{
+width:230px;
+padding:10px 14px;
+border-radius:30px;
+border:1px solid #ddd;
+outline:none;
+font-size:14px;
+}
+
+.search-results{
+position:absolute;
+top:50px;
+right:0;
+width:320px;
+background:white;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+overflow:hidden;
+z-index:9999;
+}
+
+.search-item{
+display:block;
+padding:14px;
+text-decoration:none;
+color:#222;
+border-bottom:1px solid #eee;
+transition:.2s;
+}
+
+.search-item:hover{
+background:#f5f5f5;
+}
+
+.search-item strong{
+display:block;
+margin-bottom:5px;
+}
+
+.search-item span{
+font-size:13px;
+color:#777;
+}
+
+.search-empty{
+padding:20px;
+text-align:center;
+color:#999;
 }
