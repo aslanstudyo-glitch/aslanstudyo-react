@@ -85,6 +85,16 @@ function Hero() {
           >
             {settings.heroButton2}
           </a>
+
+          <a
+            href="https://radyo.aslanstudyo.com"
+            className="btn radio-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="live-dot"></span>
+            Canlı Radyo Dinle
+          </a>
         </div>
       </div>
     </section>
