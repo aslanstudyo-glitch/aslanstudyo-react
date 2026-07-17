@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
-const STREAM_URL = "https://radyo.aslanstudyo.com/listen/radyoaslan/radio.mp3";
-const NOW_PLAYING_URL = "https://radyo.aslanstudyo.com/api/nowplaying/radyoaslan";
+const STREAM_URL =
+  "https://stream.aslanstudyo.com/listen/radyoaslan/radio.mp3";
+
+const NOW_PLAYING_URL =
+  "https://stream.aslanstudyo.com/api/nowplaying/radyoaslan";
 const RADIO_PAGE_URL = "https://aslanstudyo.com/radyo";
 const QR_CODE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASgAAAEoAQAAAADDfFG0AAAB9UlEQVR4nO1a0W4DMQizp/7/L3sPYJLrpqlPAWmhqnp3sVQLAcHkKHxgX5+ALuqiftgLYFwJBARQ+URrZSr7Fn9BgL3GcJgIgaqVqex7/LUCCwRFiCKhWhnLvhdFQFBE1srGfl6TUK/tWnsp475xTmXf5K90DaH8RmqqVqayP4+CHEf65WPIVPbnUVvaVReRebkl5FT2Lf6i0j1UPYhmrNw2lX0LSpDk7oECQRDhKEXYDWZ/GBUx5UIv56QTleKNrzcUo1mt9lQgCYEEMtQGsz+MotJfgLJ+Zb2vmxZeU1GlH8NJoYW8SUqM8JvKviu+XLjgPpV2YOyaU9k37Y9OP5TAlsc7vP3Ew1iDiaz3AHJaQeSo4ubjMreneR0lnpCD68bXm6lUdTat+Zu6Urj68Q2V9arUT0QXIbeyo9kfRkEhhlL8SMqIe4TaVPZtelsuYnTlsii69f5hVG6P8EhCWfKxDfCnsu9C0eWLcHsBiFm9prM/iVrxBa0HdQYJ4J4/7rbPV3OHdNdFd61z2bfobUvH2BFZqZjOvP3EbpmPNbpxzV+6+8bXbtv5NihK9HlHRBru/OsPlIcSEkS5w+/nNQf1ON/Od07g9yjqyHYq+yZ/pbSOWrYmiDXmGcu+aT4RF1jaMRVl3l/9uOzxWsmRf7yo/4T6BkpKGAb/MsqmAAAAAElFTkSuQmCC";
 
