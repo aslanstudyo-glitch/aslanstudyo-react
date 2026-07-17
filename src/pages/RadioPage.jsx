@@ -82,7 +82,9 @@ export default function RadioPage() {
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    audio.volume = volume;
+    audio.volume = volume > 0 ? volume : 0.8;
+    audio.muted = false;
+    setIsMuted(false);
     const tryAutoplay = async () => {
       try {
         await audio.play();
@@ -180,9 +182,31 @@ export default function RadioPage() {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const nextMuted = !isMuted;
+    const nextMuted = !audio.muted;
+
+    if (!nextMuted && volume === 0) {
+      const restoredVolume = 0.8;
+      audio.volume = restoredVolume;
+      setVolume(restoredVolume);
+    }
+
     audio.muted = nextMuted;
     setIsMuted(nextMuted);
+  };
+
+  const handleVolumeChange = (event) => {
+    const nextVolume = Number(event.target.value);
+    const audio = audioRef.current;
+
+    setVolume(nextVolume);
+
+    if (audio) {
+      audio.volume = nextVolume;
+      if (nextVolume > 0 && audio.muted) {
+        audio.muted = false;
+        setIsMuted(false);
+      }
+    }
   };
 
   const handleCoverMove = (event) => {
@@ -205,6 +229,14 @@ export default function RadioPage() {
     if (!audio) return;
     try {
       if (audio.paused) {
+        // Mobil tarayıcılarda kullanıcı oynat düğmesine bastığında sesi açık başlat.
+        if (audio.muted || volume === 0) {
+          const restoredVolume = volume > 0 ? volume : 0.8;
+          audio.muted = false;
+          audio.volume = restoredVolume;
+          setIsMuted(false);
+          if (volume === 0) setVolume(restoredVolume);
+        }
         await audio.play();
         setIsPlaying(true);
         setAutoplayBlocked(false);
@@ -1565,8 +1597,12 @@ export default function RadioPage() {
         ref={audioRef}
         src={STREAM_URL}
         preload="auto"
+        playsInline
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
+        onVolumeChange={(event) => {
+          setIsMuted(event.currentTarget.muted);
+        }}
       />
 
       <section className="spotify-shell">
@@ -1870,7 +1906,7 @@ export default function RadioPage() {
             max="1"
             step="0.01"
             value={volume}
-            onChange={(event) => setVolume(Number(event.target.value))}
+            onChange={handleVolumeChange}
             aria-label="Ses seviyesi"
           />
         </div>
