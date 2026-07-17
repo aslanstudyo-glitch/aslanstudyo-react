@@ -26,6 +26,7 @@ import CerezPolitikasi from "./pages/CerezPolitikasi";
 import Iletisim from "./pages/Iletisim";
 import LoadingScreen from "./components/LoadingScreen";
 import VisitorTracker from "./components/VisitorTracker";
+import RadioPage from "./pages/RadioPage";
 
 
 function HomePage() {
@@ -94,16 +95,14 @@ function HomePage() {
 
 function App() {
   return (
-    <Routes>
+   <Routes>
   <Route path="/" element={<HomePage />} />
   <Route path="/kunye" element={<Kunye />} />
   <Route path="/kvkk" element={<Kvkk />} />
   <Route path="/gizlilik" element={<Gizlilik />} />
-  <Route
-    path="/cerez-politikasi"
-    element={<CerezPolitikasi />}
-  />
+  <Route path="/cerez-politikasi" element={<CerezPolitikasi />} />
   <Route path="/iletisim" element={<Iletisim />} />
+  <Route path="/radyo" element={<RadioPage />} />
 </Routes>
   );
 }

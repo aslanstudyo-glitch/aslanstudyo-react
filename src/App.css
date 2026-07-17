@@ -1060,4 +1060,23 @@ color:#999;
     transform: scale(1);
     opacity: 1;
   }
+}.song-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.radio-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.72),
+      rgba(0, 0, 0, 0.72)
+    ),
+    url("/radio-background.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
